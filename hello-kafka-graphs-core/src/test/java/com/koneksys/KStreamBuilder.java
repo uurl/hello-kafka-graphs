@@ -14,7 +14,7 @@ import org.junit.ClassRule;
 
 import io.kgraph.utils.ClientUtils;
 
-public abstract class AbstractIntegrationTest {
+public abstract class KStreamBuilder {
     @ClassRule
     public static final EmbeddedKafkaCluster CLUSTER = new EmbeddedKafkaCluster(1);
 

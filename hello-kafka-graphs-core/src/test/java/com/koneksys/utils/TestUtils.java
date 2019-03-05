@@ -19,19 +19,6 @@ public class TestUtils {
         compareResult(result, expected, true, true);
     }
 
-    public static <T> void compareResultAsText(List<T> result, String expected) {
-        compareResult(result, expected,
-            false, true);
-    }
-
-    public static <T> void compareOrderedResultAsText(List<T> result, String expected) {
-        compareResult(result, expected, false, false);
-    }
-
-    public static <T> void compareOrderedResultAsText(List<T> result, String expected, boolean asTuples) {
-        compareResult(result, expected, asTuples, false);
-    }
-
     private static <T> void compareResult(List<T> result, String expected, boolean asTuples, boolean sort) {
         String[] expectedStrings = expected.split("\n");
         String[] resultStrings = new String[result.size()];

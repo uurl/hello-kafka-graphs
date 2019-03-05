@@ -44,27 +44,19 @@
         <tag>HEAD</tag>
     </scm>
 
-    <properties>
-        <kafka.version>2.1.1</kafka.version>
-        <kafka.scala.version>2.12</kafka.scala.version>
-        <kafka.graphs.version>0.4.0</kafka.graphs.version>
-        <vavr.version>0.9.2</vavr.version>
-    </properties>
-
-
     <dependencies>
 
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
-            <version>${kafka.version}</version>
+            <version>2.1.1</version>
             <classifier>test</classifier>
         </dependency>
 
         <dependency>
             <groupId>io.kgraph</groupId>
             <artifactId>kafka-graphs-core</artifactId>
-            <version>${kafka.graphs.version}</version>
+            <version>0.4.0</version>
         </dependency>
 
         <dependency>
@@ -74,6 +66,5 @@
         </dependency>
 
     </dependencies>
-
 
 </project>

@@ -1,5 +1,5 @@
 
-package com.koneksys;
+package io.treutech;
 
 import java.util.Properties;
 import java.util.UUID;

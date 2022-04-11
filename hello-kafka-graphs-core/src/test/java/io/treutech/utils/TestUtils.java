@@ -1,5 +1,5 @@
 
-package com.koneksys.utils;
+package io.treutech.utils;
 
 import static org.junit.Assert.assertEquals;
 

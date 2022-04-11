@@ -1,5 +1,5 @@
 
-package com.koneksys;
+package io.treutech;
 
 import java.util.ArrayList;
 import java.util.List;

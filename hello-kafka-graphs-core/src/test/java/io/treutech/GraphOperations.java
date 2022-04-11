@@ -1,7 +1,7 @@
 
-package com.koneksys;
+package io.treutech;
 
-import static com.koneksys.utils.TestUtils.compareResultAsTuples;
+import static io.treutech.utils.TestUtils.compareResultAsTuples;
 
 import java.util.List;
 import java.util.Properties;
@@ -169,8 +169,8 @@ public class GraphOperations extends KStreamBuilder {
         compareResultAsTuples(result, expectedResult);
     }
 
-	@Test
-	public void testFilterVertices() throws Exception {
+    @Test
+    public void testFilterVertices() throws Exception {
         Properties producerConfig = ClientUtils.producerConfig(CLUSTER.bootstrapServers(), LongSerializer.class,
             LongSerializer.class, new Properties()
         );
@@ -187,7 +187,7 @@ public class GraphOperations extends KStreamBuilder {
         KGraph<Long, Long, Long> graph = new KGraph<>(
             vertices, edges, GraphSerialized.with(Serdes.Long(), Serdes.Long(), Serdes.Long()));
 
-		KTable<Edge<Long>, Long> data = graph.filterOnVertices((k, v) -> v > 2).edges();
+        KTable<Edge<Long>, Long> data = graph.filterOnVertices((k, v) -> v > 2).edges();
 
         startStreams(builder, Serdes.Long(), Serdes.Long());
 
@@ -195,17 +195,17 @@ public class GraphOperations extends KStreamBuilder {
 
         List<KeyValue<Edge<Long>, Long>> result = StreamUtils.listFromTable(streams, data);
 
-		expectedResult = "3,4,34\n" +
-			"3,6,36\n" +
+        expectedResult = "3,4,34\n" +
+            "3,6,36\n" +
             "4,5,45\n" +
             "4,6,46\n" +
             "5,6,56\n";
 
-		compareResultAsTuples(result, expectedResult);
-	}
+        compareResultAsTuples(result, expectedResult);
+    }
 
-	@Test
-	public void testFilterEdges() throws Exception {
+    @Test
+    public void testFilterEdges() throws Exception {
         Properties producerConfig = ClientUtils.producerConfig(CLUSTER.bootstrapServers(), LongSerializer.class,
             LongSerializer.class, new Properties()
         );
@@ -230,12 +230,12 @@ public class GraphOperations extends KStreamBuilder {
 
         List<KeyValue<Edge<Long>, Long>> result = StreamUtils.listFromTable(streams, data);
 
-		expectedResult = "3,6,36\n" +
-			"4,5,45\n" +
+        expectedResult = "3,6,36\n" +
+            "4,5,45\n" +
             "4,6,46\n" +
             "5,6,56\n" +
-			"6,1,61\n";
+            "6,1,61\n";
 
-		compareResultAsTuples(result, expectedResult);
-	}
+        compareResultAsTuples(result, expectedResult);
+    }
 }

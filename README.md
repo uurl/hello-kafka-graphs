@@ -8,8 +8,8 @@ A graph in Kafka Graphs is represented by two tables from Kafka Streams, one for
 KTable<Long, Long> vertices = ...
 KTable<Edge<Long>, Long> edges = ...
 KGraph<Long, Long, Long> graph = new KGraph<>(
-    vertices, 
-    edges, 
+    vertices,
+    edges,
     GraphSerialized.with(Serdes.Long(), Serdes.Long(), Serdes.Long())
 );
 ```
@@ -44,7 +44,7 @@ For example, in the class ```TestGraphUtils``` we define the following graph
 
 ## Graph Operations
 
-Kafka Graphs provides a number of APIs for transforming graphs in the same manner as Apache Flink Gelly and Apache Spark GraphX.  
+Kafka Graphs provides a number of APIs for transforming graphs in the same manner as Apache Flink Gelly and Apache Spark GraphX.
 
 - Filtering methods
   - ``filterOnEdges``
@@ -78,10 +78,10 @@ graph.reduceOnNeighbors(new SumValues(), EdgeDirection.IN);
 
 In the class ```GraphOperations``` we run the Operations over the defined Graph
 
-- The method ```testOutDegrees()``` 
-  
+- The method ```testOutDegrees()```
+
   Calculates ```KTable<Long, Long> outDegrees = graph.outDegrees();```
-  
+
   The result is the out-degree of each vertex:
      ```
      1,2

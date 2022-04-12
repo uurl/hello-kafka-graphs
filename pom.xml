@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.treutech</groupId>
   <artifactId>hello-kafka-graphs</artifactId>
   <version>1.0.0</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
   <name>hello-kafka-graphs</name>
   <description>Kafka Graphs Hello World</description>
@@ -25,91 +26,82 @@
     </developer>
   </developers>
 
-  <scm>
-    <connection>scm:git:git://github.com:uurl/hello-kafka-graphs.git</connection>
-    <developerConnection>scm:git:git@github.com:uurl/hello-kafka-graphs.git</developerConnection>
-    <url>git@github.com:uurl/hello-kafka-graphs.git</url>
-    <tag>HEAD</tag>
-  </scm>
-
   <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <kafka.version>3.1.0</kafka.version>
     <kafka.scala.version>2.13</kafka.scala.version>
   </properties>
 
-  <dependencyManagement>
+  <dependencies>
 
-    <dependencies>
+    <dependency>
+      <groupId>io.kgraph</groupId>
+      <artifactId>kafka-graphs-core</artifactId>
+      <version>2.0.0</version>
+    </dependency>
 
-      <dependency>
-        <groupId>io.kgraph</groupId>
-        <artifactId>kafka-graphs-core</artifactId>
-        <version>2.0.0</version>
-        <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_${kafka.scala.version}</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
 
-      <!-- Test dependencies -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
 
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.2</version>
-        <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-streams</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
 
-      <dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka_${kafka.scala.version}</artifactId>
-        <version>${kafka.version}</version>
-        <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-streams-scala_${kafka.scala.version}</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
 
-      <dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka-clients</artifactId>
-        <version>${kafka.version}</version>
-        <scope>test</scope>
-      </dependency>
+    <!-- Test dependencies -->
 
-      <dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka-streams</artifactId>
-        <version>${kafka.version}</version>
-        <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+    </dependency>
 
-    </dependencies>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-streams-test-utils</artifactId>
+      <version>${kafka.version}</version>
+      <classifier>test</classifier>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_${kafka.scala.version}</artifactId>
+      <version>${kafka.version}</version>
+      <classifier>test</classifier>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+      <classifier>test</classifier>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-streams</artifactId>
+      <version>${kafka.version}</version>
+      <classifier>test</classifier>
+      <scope>test</scope>
+    </dependency>
 
-  </dependencyManagement>
-
-  <build>
-
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.7.0</version>
-          <inherited>true</inherited>
-          <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
-    </plugins>
-
-  </build>
+  </dependencies>
 
 </project>

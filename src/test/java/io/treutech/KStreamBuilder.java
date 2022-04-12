@@ -1,4 +1,3 @@
-
 package io.treutech;
 
 import java.util.Properties;
@@ -24,7 +23,7 @@ public abstract class KStreamBuilder {
   protected <K, V> void startStreams(StreamsBuilder builder, Serde<K> keySerde, Serde<V> valueSerde) {
     String id = UUID.randomUUID().toString();
     streamsConfiguration = ClientUtils.streamsConfig("test-" + id, "test-client-" + id, CLUSTER.bootstrapServers(),
-      keySerde.getClass(), valueSerde.getClass());
+        keySerde.getClass(), valueSerde.getClass());
     streams = new KafkaStreams(builder.build(), streamsConfiguration);
     streams.start();
   }
@@ -39,3 +38,4 @@ public abstract class KStreamBuilder {
     }
   }
 }
+

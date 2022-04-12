@@ -56,9 +56,9 @@ public class TestUtils {
 
     // Include content of both arrays to provide more context in case of a test failure
     String msg = String.format(
-      "Different elements in arrays: expected %d elements and received %d\n expected: %s\n received: %s",
-      expectedStrings.length, resultStrings.length,
-      Arrays.toString(expectedStrings), Arrays.toString(resultStrings));
+        "Different elements in arrays: expected %d elements and received %d\n expected: %s\n received: %s",
+        expectedStrings.length, resultStrings.length,
+        Arrays.toString(expectedStrings), Arrays.toString(resultStrings));
 
     assertEquals(msg, expectedStrings.length, resultStrings.length);
 
